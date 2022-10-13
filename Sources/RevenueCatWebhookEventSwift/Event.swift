@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AnyCodable
 
 
 public struct Event: Codable {
@@ -101,7 +102,7 @@ public struct Event: Codable {
     public let takehomePercentage: Double?
 
     /// Map of attribute names to attribute objects.
-    public let subscriberAttributes: String?
+    public let subscriberAttributes: [String: AnyCodable]?
     
     /// Transaction identifier from Apple/Amazon/Google/Stripe.
     public let transactionID: String
@@ -114,7 +115,7 @@ public struct Event: Codable {
     /// Indicates if the user made this purchase or if it was shared to them via Family Sharing.
     ///
     /// - Note: Always false for non-Apple purchases.
-    public let isFamilyShare: Bool?
+    public let isFamilyShare: Bool
 
     /// App User ID(s) that transactions and entitlements are being taken from, and granted to transferred_to.
     ///

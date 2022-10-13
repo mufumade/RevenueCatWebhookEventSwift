@@ -9,13 +9,19 @@ let package = Package(
             name: "RevenueCatWebhookEventSwift",
             targets: ["RevenueCatWebhookEventSwift"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(
+            url: "https://github.com/Flight-School/AnyCodable",
+            from: "0.6.0"
+        )
+    ],
     targets: [
         .target(
             name: "RevenueCatWebhookEventSwift",
-            dependencies: []),
+            dependencies: [.byName(name: "AnyCodable")]),
         .testTarget(
             name: "RevenueCatWebhookEventSwiftTests",
             dependencies: ["RevenueCatWebhookEventSwift"]),
     ]
 )
+
